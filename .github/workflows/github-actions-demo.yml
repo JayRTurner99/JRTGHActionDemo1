@@ -19,14 +19,15 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        echo "Started by ${{ github.actor }} on event ${{github.event_name }}"
-        echo "The branch name is ${{ github.ref }}"
+      - name: Identification step
+        run: |
+          echo "Started by ${{ github.actor }} on event ${{ github.event_name }}"
+          echo "The branch name is ${{ github.ref }}"
 
       - uses: actions/checkout@v.3.3.0
 
       - name: List files in the repository
-        run |
+        run: |
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
       
